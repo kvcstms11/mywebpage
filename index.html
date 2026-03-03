@@ -205,4 +205,59 @@ footer{padding:2rem 0;text-align:center;font-size:.6rem;color:var(--text3);lette
     <p class="hero-desc" data-i18n="h_desc">Digitális termékeket építek és piacra viszek — stratégiától a launchig. Product, growth és distribution metszetében dolgozom.</p>
     <div class="hero-stats">
       <div><span class="hs-n">45K+</span><div class="hs-l" data-i18n="s_fol">követő</div></div>
-      <div><span class="hs-n">5</span><div class="hs-l" data-i18n="s_ship">sz
+      <div><span class="hs-n">5</span><div class="hs-l" data-i18n="s_ship">szállított termék</div></div>
+      <div><span class="hs-n">10+</span><div class="hs-l" data-i18n="s_yr">év a technológiában</div></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="about"><div class="container"><div class="about-inner fi">
+  <div class="s-label" data-i18n="ab_label">Rólam</div>
+  <h2 data-i18n="ab_title">Mérnökből terméképítő és tartalomkészítő</h2>
+  <p data-i18n="ab_p1">Telekommunikációs mérnökként indultam — 4G hálózatokat és segélyhívó rendszereket építettem.</p>
+  <p data-i18n="ab_p2">Ma a saját termékeimet fejlesztem és tartalmat készítek. Ausztriában élek.</p>
+  <div class="about-tags"><span>Product Manager</span><span>Content Creator</span><span>Automation</span><span>5G · IoT</span><span>n8n</span></div>
+</div></div></section>
+
+<section id="building"><div class="container">
+  <div class="s-label" data-i18n="b_label">Amin dolgozom</div>
+  <h2 class="s-title" data-i18n="b_title">Aktuális projektek</h2>
+  <div class="build-grid">
+    <div class="build-item fi"><div class="build-sep"></div><h3>📈 Piacradar</h3><p class="desc" data-i18n="bd_pr">Napi piaci összefoglaló magyarul.</p><a href="https://t.me/+Mk5bfbCfUf1lMGE0" target="_blank" class="btn-primary">Csatlakozz →</a></div>
+    <div class="build-item fi"><div class="build-sep"></div><h3>🇦🇹 Ausztria Radar</h3><p class="desc" data-i18n="bd_ar">Osztrák hírek magyarul.</p><a href="#" class="btn-primary">Feliratkozás →</a></div>
+  </div>
+</div></section>
+
+<section id="contact"><div class="container"><div class="c-form-wrap fi">
+  <div class="s-label" data-i18n="co_label">Kapcsolat</div>
+  <h2 class="s-title" data-i18n="co_title">Dolgozzunk együtt</h2>
+  <form class="c-form" id="contactForm" action="https://formsubmit.co/tamas11kovacs@gmail.com" method="POST">
+    <input type="hidden" name="_captcha" value="false">
+    <div class="f-row">
+      <div class="fg"><label data-i18n="f_n">Név</label><input type="text" name="name" required></div>
+      <div class="fg"><label>Email</label><input type="email" name="email" required></div>
+    </div>
+    <div class="fg"><label data-i18n="f_m">Üzenet</label><textarea name="message" required></textarea></div>
+    <button type="submit" class="btn-sub" data-i18n="f_s">Küldés →</button>
+    <div class="form-msg" id="formMsg"></div>
+  </form>
+</div></div></section>
+
+<footer><div class="container"><p>© 2025 Tamás Kovács · <span data-i18n="ft">Készült Ausztriában</span></p></div></footer>
+</div>
+
+<script>
+// Fordítások (T objektum) és logikák...
+var T={hu:{n_about:"Rólam",n_build:"Projektek",n_del:"Portfólió",n_links:"Linkek",n_con:"Kapcsolat",h_sub:"Product · Growth · Distribution",h_desc:"Digitális termékeket építek és piacra viszek — stratégiától a launchig.",s_fol:"követő",s_ship:"szállított termék",s_yr:"év a technológiában",ab_label:"Rólam",ab_title:"Mérnökből terméképítő és tartalomkészítő",ab_p1:"Telekommunikációs mérnökként indultam.",ab_p2:"Ma saját termékeket fejlesztek.",b_label:"Amin dolgozom",b_title:"Aktuális projektek",bd_pr:"Napi piaci összefoglaló magyarul.",bd_ar:"Osztrák hírek magyarul.",co_label:"Kapcsolat",co_title:"Dolgozzunk együtt",f_n:"Név",f_m:"Üzenet",f_s:"Küldés →",ft:"Készült Ausztriában",form_ok:"Köszönöm! Válaszolok.",form_err:"Hiba történt."},en:{n_about:"About",n_build:"Projects",n_del:"Portfolio",n_links:"Links",n_con:"Contact",h_sub:"Product · Growth · Distribution",h_desc:"I build and ship digital products.",s_fol:"followers",s_ship:"shipped products",s_yr:"years in tech",ab_label:"About",ab_title:"From Engineer to Product Builder",ab_p1:"I started as a telecom engineer.",ab_p2:"Today I build products.",b_label:"What I build",b_title:"Current projects",bd_pr:"Daily market brief.",bd_ar:"Austrian news in HU.",co_label:"Contact",co_title:"Let's work together",f_n:"Name",f_m:"Message",f_s:"Send →",ft:"Built in Austria",form_ok:"Thanks! I'll reply soon.",form_err:"Error occurred."}};
+var lang=localStorage.getItem('tk_lang')||'hu';
+function setLang(l){lang=l;localStorage.setItem('tk_lang',l);document.documentElement.lang=l;var t=T[l];document.querySelectorAll('[data-i18n]').forEach(function(el){var k=el.getAttribute('data-i18n');if(t[k])el.textContent=t[k];});document.querySelectorAll('.lang-btn').forEach(function(b){b.classList.toggle('active',b.dataset.lang===l);});}
+document.querySelectorAll('.lang-btn').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.lang);});});
+setLang(lang);
+var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('v');obs.unobserve(e.target);}});},{threshold:.1});
+document.querySelectorAll('.fi').forEach(function(el){obs.observe(el);});
+function openMob(){document.getElementById('mobMenu').classList.add('open');}
+function closeMob(){document.getElementById('mobMenu').classList.remove('open');}
+document.getElementById('contactForm').addEventListener('submit',function(e){e.preventDefault();var f=this;var m=document.getElementById('formMsg');fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}}).then(function(r){if(r.ok){m.className='form-msg ok';m.textContent=T[lang].form_ok;f.reset();}else{m.className='form-msg err';m.textContent=T[lang].form_err;}});});
+</script>
+</body>
+</html>
