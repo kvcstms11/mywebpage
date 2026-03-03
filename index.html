@@ -5,14 +5,12 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Tamás Kovács — Create. Build. Reach.</title>
 <meta name="description" content="Digitális termékeket építek és piacra viszek. Piacradar, Ausztria Radar, 45K+ követő.">
-<meta property="og:title" content="Tamás Kovács — Create. Build. Reach.">
-<meta property="og:description" content="Product · Growth · Distribution">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#08080A;--surface:rgba(255,255,255,0.025);--surface-solid:#0C0C0F;
+  --bg:#08080A;--surface:rgba(255,255,255,0.025);
   --border:rgba(255,255,255,0.07);--border-l:rgba(255,255,255,0.04);
   --text:#ECEEF3;--text2:rgba(236,238,243,0.68);--text3:rgba(236,238,243,0.38);
   --accent:#B49CFF;--accent-dim:rgba(180,156,255,0.08);
@@ -27,42 +25,43 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
   background-image:linear-gradient(rgba(255,255,255,0.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.018) 1px,transparent 1px);
   background-size:80px 80px;opacity:.3}
 
-/* Portrait BG — sziluett visible, face not recognizable */
+/* Portrait BG — sziluett: visible shape, unrecognizable face */
 .bg-portrait{
-  position:fixed;top:-5%;right:-5%;
-  width:55vw;max-width:620px;aspect-ratio:2/3;
-  background:url('hero-photo-2.jpg') center 8%/cover no-repeat;
-  filter:blur(14px) grayscale(1) brightness(.22) contrast(.95);
-  opacity:.32;
-  -webkit-mask-image:radial-gradient(ellipse at 65% 30%,rgba(0,0,0,.7) 0%,rgba(0,0,0,.3) 50%,transparent 75%);
-  mask-image:radial-gradient(ellipse at 65% 30%,rgba(0,0,0,.7) 0%,rgba(0,0,0,.3) 50%,transparent 75%);
+  position:fixed;top:0;right:0;
+  width:65vw;max-width:750px;height:100vh;
+  background:url('hero-photo-2.jpg') center top/cover no-repeat;
+  filter:blur(8px) grayscale(1) brightness(.35) contrast(1.05);
+  opacity:.55;
   z-index:0;pointer-events:none;
+}
+.bg-portrait::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to right,var(--bg) 0%,transparent 35%),linear-gradient(to top,var(--bg) 0%,transparent 30%);
 }
 
 #page{position:relative;z-index:1}
 
-/* NAV */
+/* NAV — everything right-aligned except logo */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(8,8,10,0.88);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
-.nav-row1{display:flex;justify-content:space-between;align-items:center;max-width:1060px;margin:0 auto;padding:.7rem 1.75rem .45rem}
-.nav-row2{display:flex;justify-content:center;align-items:center;gap:.35rem;padding:0 1.75rem .6rem;max-width:1060px;margin:0 auto}
-.nav-logo{font-family:var(--display);font-weight:800;font-size:1rem;color:var(--text);text-decoration:none;letter-spacing:.04em}
+.nav-row1{display:flex;align-items:center;max-width:1060px;margin:0 auto;padding:.7rem 1.75rem .45rem;gap:1rem}
+.nav-logo{font-family:var(--display);font-weight:800;font-size:1rem;color:var(--text);text-decoration:none;letter-spacing:.04em;margin-right:auto}
 .nav-center{display:flex;align-items:center;gap:1.6rem;list-style:none}
 .nav-center a{color:var(--text3);text-decoration:none;font-size:.72rem;font-weight:500;letter-spacing:.03em;transition:color .2s;text-transform:uppercase}
 .nav-center a:hover,.nav-center a:focus{color:var(--text)}
-.nav-right-area{display:flex;align-items:center;gap:.55rem}
+.nav-right-area{display:flex;align-items:center;gap:.55rem;flex-shrink:0}
 .nav-links-btn{display:inline-flex;align-items:center;font-family:var(--display);font-weight:600;font-size:.62rem;padding:.28rem .6rem;border:1px solid var(--border);border-radius:6px;background:transparent;color:var(--text3);text-decoration:none;transition:all .2s;letter-spacing:.03em;text-transform:uppercase;white-space:nowrap}
 .nav-links-btn:hover{color:var(--text);border-color:rgba(255,255,255,.18)}
 .lang-sw{display:flex;align-items:center;gap:.1rem}
 .lang-btn{background:none;border:none;padding:.15rem .28rem;color:var(--text3);cursor:pointer;font-family:var(--font);font-size:.65rem;font-weight:600;transition:color .2s;border-radius:3px;letter-spacing:.04em}
 .lang-btn.active{color:var(--text)}
-.lang-btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .lang-sep{color:var(--text3);font-size:.55rem;opacity:.5}
 .nav-toggle{display:none;background:none;border:none;color:var(--text);cursor:pointer;padding:.2rem}
 .nav-toggle svg{width:20px;height:20px;stroke:var(--text);stroke-width:2;fill:none}
+/* Social row — right-aligned */
+.nav-row2{display:flex;justify-content:flex-end;align-items:center;gap:.35rem;padding:0 1.75rem .6rem;max-width:1060px;margin:0 auto}
 .nav-socials{display:flex;gap:.3rem;align-items:center}
 .nav-soc{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:8px;border:1px solid rgba(255,255,255,.1);text-decoration:none;transition:all .2s;background:transparent}
 .nav-soc:hover{border-color:rgba(255,255,255,.22);background:rgba(255,255,255,.04)}
-.nav-soc:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .nav-soc svg{width:18px;height:18px;fill:none;stroke:rgba(255,255,255,.82);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .nav-soc--fill svg{fill:rgba(255,255,255,.82);stroke:none}
 
@@ -72,9 +71,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(8,8,10,0.88)
 .s-sub{color:var(--text2);font-size:.88rem;max-width:460px;margin-bottom:2rem;line-height:1.65}
 .btn-primary{display:inline-flex;align-items:center;gap:.35rem;font-family:var(--display);font-weight:600;font-size:.72rem;padding:.55rem 1.1rem;border:none;border-radius:8px;background:var(--accent);color:var(--bg);cursor:pointer;text-decoration:none;transition:all .2s;white-space:nowrap;letter-spacing:.01em}
 .btn-primary:hover{opacity:.88;transform:translateY(-1px)}
-.btn-primary:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 
-/* HERO — single column, no panel */
+/* HERO */
 .hero{min-height:auto;padding:8.5rem 0 4.5rem}
 .hero-inner{max-width:600px}
 .hero-name{font-family:var(--display);font-size:clamp(.7rem,1.1vw,.85rem);font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.18em;margin-bottom:.5rem;animation:fu .6s ease both}
@@ -82,7 +80,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(8,8,10,0.88)
 .hero-hl .dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--accent);vertical-align:middle;margin:0 .12em;position:relative;top:-3px;opacity:.7}
 .hero-sub{font-family:var(--display);font-size:.68rem;color:var(--text3);text-transform:uppercase;letter-spacing:.12em;margin-bottom:1.5rem;animation:fu .6s .1s ease both}
 .hero-desc{font-size:.92rem;color:var(--text2);line-height:1.7;max-width:460px;margin-bottom:2rem;animation:fu .6s .14s ease both}
+/* Stats — numbers centered over labels */
 .hero-stats{display:flex;gap:3rem;animation:fu .6s .2s ease both}
+.hero-stats > div{text-align:center}
 .hs-n{font-family:var(--display);font-size:1.7rem;font-weight:800;color:var(--text);letter-spacing:-.02em}
 .hs-l{font-size:.6rem;color:var(--text3);text-transform:uppercase;letter-spacing:.08em;font-weight:500;margin-top:.1rem}
 
@@ -125,11 +125,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(8,8,10,0.88)
 .fg input,.fg textarea,.fg select{background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:8px;padding:.7rem .85rem;color:var(--text);font-family:var(--font);font-size:.85rem;transition:border-color .2s;outline:none}
 .fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--accent)}
 .fg textarea{resize:vertical;min-height:80px}
-.fg select option{background:var(--surface-solid);color:var(--text)}
+.fg select option{background:#0C0C0F;color:var(--text)}
 .f-row{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
 .btn-sub{font-family:var(--display);font-weight:600;font-size:.78rem;padding:.75rem 1.3rem;border:none;border-radius:8px;background:var(--accent);color:var(--bg);cursor:pointer;transition:all .2s;margin-top:.2rem;letter-spacing:.01em}
 .btn-sub:hover{opacity:.88;transform:translateY(-1px)}
-.btn-sub:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 .form-msg{font-size:.75rem;margin-top:.5rem;display:none}
 .form-msg.ok{color:#6ee7b7;display:block}
 .form-msg.err{color:#fca5a5;display:block}
@@ -153,7 +152,7 @@ footer{padding:2rem 0;text-align:center;font-size:.6rem;color:var(--text3);lette
   .build-grid{grid-template-columns:1fr}
   .del-entry{grid-template-columns:34px 1fr;gap:.7rem}.del-icon{width:34px;height:34px;font-size:.62rem}
   .f-row{grid-template-columns:1fr}
-  .bg-portrait{width:85vw;right:-15%;opacity:.25}
+  .bg-portrait{width:100vw;right:0;opacity:.35}
 }
 @media(max-width:400px){.hero-hl{font-size:1.8rem}}
 </style>
