@@ -31,7 +31,9 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
 .lib-btn{display:flex;align-items:center;gap:.75rem;padding:.85rem 1.1rem;background:transparent;border-bottom:1px solid rgba(255,255,255,.05);text-decoration:none;color:var(--text);transition:all .2s;width:100%}
 .lib-btn:first-child{border-top:1px solid rgba(255,255,255,.05)}
 .lib-btn:hover{background:rgba(255,255,255,.025);padding-left:1.3rem}
-.lib-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0;background:var(--accent-dim);border:1px solid rgba(180,156,255,.1)}
+.lib-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0;background:var(--accent-dim);border:1px solid rgba(180,156,255,.1);overflow:hidden}
+.lib-icon-img{padding:0;background:transparent;border-color:rgba(255,255,255,.08)}
+.lib-icon-img img{width:100%;height:100%;object-fit:cover;border-radius:10px}
 .lib-text{flex:1}.lib-title{font-family:var(--display);font-size:.78rem;font-weight:600;margin-bottom:.08rem;letter-spacing:.01em}
 .lib-subdesc{font-size:.68rem;color:var(--text3);line-height:1.4}
 .lib-arrow{color:var(--text3);font-size:.65rem;opacity:.5;transition:opacity .2s}
@@ -100,8 +102,8 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
 </div>
 <script>
 var BUTTONS=[
-  {url:'https://t.me/+Mk5bfbCfUf1lMGE0',icon:'\ud83d\udcc8',hu_t:'Piacradar',en_t:'Piacradar',hu_d:'Magyar piaci összefoglalók, makró és gyorsjelentések.',en_d:'Hungarian market briefings, macro and earnings.'},
-  {url:'https://preview.mailerlite.io/forms/122717218075691469/8716491/share',icon:'\ud83c\udde6\ud83c\uddf9',hu_t:'Ausztria Radar',en_t:'Ausztria Radar',hu_d:'Osztrák hírek és hétköznapok magyarul.',en_d:'Austria news and life in Hungarian.'}
+  {url:'https://t.me/+Mk5bfbCfUf1lMGE0',img:'logo-piacradar.png',hu_t:'Piacradar',en_t:'Piacradar',hu_d:'Magyar piaci összefoglalók, makró és gyorsjelentések.',en_d:'Hungarian market briefings, macro and earnings.'},
+  {url:'https://preview.mailerlite.io/forms/122717218075691469/8716491/share',img:'logo-ausztria-radar.png',hu_t:'Ausztria Radar',en_t:'Ausztria Radar',hu_d:'Osztrák hírek és hétköznapok magyarul.',en_d:'Austria news and life in Hungarian.'}
 ];
 var AFFILIATES=[
   {url:'https://kriptoteka.hu/',icon:'\u20bf',hu_t:'Kripto és gazdasági oktatóanyagok',en_t:'Kripto és gazdasági oktatóanyagok',hu_d:'20% kedvezmény a kovacstamas kuponkóddal.',en_d:'20% off with coupon code kovacstamas.'},
@@ -117,7 +119,7 @@ var T={
   en:{lib_desc:'Projects, daily briefings, and content \u2014 all in one place.',lib_full:'Full site \u2192',aff_title:'Affiliate links',co_label:'Contact',co_title:"Let's Work Together",co_sub:'Partnerships, sponsorships, content collaborations, consulting.',f_n:'Name',f_t:'Topic',f_m:'Message',f_s:'Send \u2192',o1:'Partnership / Sponsorship',o2:'Content Collaboration',o3:'Consulting',o4:'Other',fp_n:'Your name',fp_m:'Tell me your idea...',form_ok:"Thanks! I'll get back to you soon.",form_err:'Something went wrong. Please try again.'}
 };
 var lang=localStorage.getItem('tk_lang')||'hu';
-function renderList(items,cid){var c=document.getElementById(cid);c.innerHTML='';items.forEach(function(b){var a=document.createElement('a');a.href=b.url;a.target='_blank';a.rel='noopener';a.className='lib-btn';a.innerHTML='<div class="lib-icon">'+b.icon+'</div><div class="lib-text"><div class="lib-title">'+b[lang+'_t']+'</div><div class="lib-subdesc">'+b[lang+'_d']+'</div></div><span class="lib-arrow">\u2192</span>';c.appendChild(a);});}
+function renderList(items,cid){var c=document.getElementById(cid);c.innerHTML='';items.forEach(function(b){var a=document.createElement('a');a.href=b.url;a.target='_blank';a.rel='noopener';a.className='lib-btn';var iconHtml=b.img?'<div class="lib-icon lib-icon-img"><img src="'+b.img+'" alt=""></div>':'<div class="lib-icon">'+b.icon+'</div>';a.innerHTML=iconHtml+'<div class="lib-text"><div class="lib-title">'+b[lang+'_t']+'</div><div class="lib-subdesc">'+b[lang+'_d']+'</div></div><span class="lib-arrow">\u2192</span>';c.appendChild(a);});}
 function setLang(l){lang=l;localStorage.setItem('tk_lang',l);document.documentElement.lang=l;var t=T[l];document.querySelectorAll('[data-i18n]').forEach(function(el){var k=el.getAttribute('data-i18n');if(t[k]!=null)el.textContent=t[k];});document.querySelectorAll('[data-i18n-ph]').forEach(function(el){var k=el.getAttribute('data-i18n-ph');if(t[k]!=null)el.placeholder=t[k];});document.querySelectorAll('.lang-btn').forEach(function(b){var a=b.dataset.lang===l;b.classList.toggle('active',a);b.setAttribute('aria-pressed',a);});renderList(BUTTONS,'libLinks');renderList(AFFILIATES,'affLinks');}
 document.querySelectorAll('.lang-btn').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.lang);});});
 setLang(lang);
