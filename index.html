@@ -20,24 +20,26 @@
 html{scroll-behavior:smooth}
 body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
 
-/* BG grid */
-.bg-layer{position:fixed;inset:0;z-index:0;pointer-events:none;
+/* Portrait BG — body::before pseudo-element, fixed behind everything */
+body::before{
+  content:"";
+  position:fixed;
+  top:0;left:0;
+  width:100%;height:100%;
+  background-image:url('hero-photo-2.jpg');
+  background-size:cover;
+  background-position:center top;
+  background-repeat:no-repeat;
+  filter:blur(18px) brightness(0.28) grayscale(1) contrast(1.05);
+  z-index:-2;
+  transform:scale(1.1);
+  pointer-events:none;
+}
+
+/* BG grid — above portrait, below content */
+.bg-layer{position:fixed;inset:0;z-index:-1;pointer-events:none;
   background-image:linear-gradient(rgba(255,255,255,0.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.018) 1px,transparent 1px);
   background-size:80px 80px;opacity:.3}
-
-/* Portrait BG — sziluett: visible shape, unrecognizable face */
-.bg-portrait{
-  position:fixed;top:0;right:0;
-  width:65vw;max-width:750px;height:100vh;
-  background:url('hero-photo-2.jpg') center top/cover no-repeat;
-  filter:blur(8px) grayscale(1) brightness(.35) contrast(1.05);
-  opacity:.55;
-  z-index:0;pointer-events:none;
-}
-.bg-portrait::after{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(to right,var(--bg) 0%,transparent 35%),linear-gradient(to top,var(--bg) 0%,transparent 30%);
-}
 
 #page{position:relative;z-index:1}
 
@@ -152,14 +154,12 @@ footer{padding:2rem 0;text-align:center;font-size:.6rem;color:var(--text3);lette
   .build-grid{grid-template-columns:1fr}
   .del-entry{grid-template-columns:34px 1fr;gap:.7rem}.del-icon{width:34px;height:34px;font-size:.62rem}
   .f-row{grid-template-columns:1fr}
-  .bg-portrait{width:100vw;right:0;opacity:.35}
 }
 @media(max-width:400px){.hero-hl{font-size:1.8rem}}
 </style>
 </head>
 <body>
 <div class="bg-layer"></div>
-<div class="bg-portrait"></div>
 <div class="mob-menu" id="mobMenu">
   <button class="mob-close" onclick="closeMob()" aria-label="Close">&times;</button>
   <a href="#about" onclick="closeMob()" data-i18n="n_about">Rólam</a>
