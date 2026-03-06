@@ -54,6 +54,9 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
 .btn-sub{font-family:var(--display);font-weight:600;font-size:.75rem;padding:.7rem 1.2rem;border:none;border-radius:8px;background:var(--accent);color:var(--bg);cursor:pointer;transition:all .2s;margin-top:.15rem;letter-spacing:.01em;width:100%}
 .btn-sub:hover{opacity:.88;transform:translateY(-1px)}
 .form-msg{font-size:.72rem;margin-top:.4rem;display:none;text-align:center}
+.f-privacy{font-size:.62rem;color:var(--text3);line-height:1.5;margin-top:.5rem;text-align:center}
+.f-privacy a{color:var(--text2);text-decoration:underline;text-underline-offset:2px;transition:color .2s}
+.f-privacy a:hover{color:var(--accent)}
 .form-msg.ok{color:#6ee7b7;display:block}.form-msg.err{color:#fca5a5;display:block}
 .lib-footer{margin-top:2rem;font-size:.6rem;color:var(--text3);letter-spacing:.02em;text-align:center;padding-bottom:1rem}
 .lib-footer a{color:var(--text2);text-decoration:none;transition:color .2s}
@@ -95,6 +98,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
       <div class="fg"><label for="cf_type" data-i18n="f_t">Téma</label><select id="cf_type" name="type"><option value="partnership" data-i18n="o1">Partnerség / Szponzoráció</option><option value="collab" data-i18n="o2">Tartalmi együttműködés</option><option value="consulting" data-i18n="o3">Tanácsadás</option><option value="other" data-i18n="o4">Egyéb</option></select></div>
       <div class="fg"><label for="cf_msg" data-i18n="f_m">Üzenet</label><textarea id="cf_msg" name="message" required data-i18n-ph="fp_m" placeholder="Írd le az ötleted..."></textarea></div>
       <button type="submit" class="btn-sub" data-i18n="f_s">Küldés →</button>
+      <p class="f-privacy" data-i18n-html="f_priv">Az itt megadott adatokat kizárólag a megkeresésed megválaszolására használom. Részletek az <a href="./privacy.html">Adatkezelési tájékoztatóban</a>.</p>
       <div class="form-msg" id="formMsg"></div>
     </form>
   </div>
@@ -103,7 +107,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
 <script>
 var BUTTONS=[
   {url:'https://t.me/+Mk5bfbCfUf1lMGE0',img:'logo-piacradar.png',hu_t:'Piacradar',en_t:'Piacradar',hu_d:'Tőzsde hírek, gazdasági jelentések elemzése a Telegram csatornán.',en_d:'Stock market brief — join our Telegram channel.'},
-  {url:'https://preview.mailerlite.io/forms/1227172/180756914698716491/share',img:'logo-ausztria-radar.png',hu_t:'Ausztria Radar',en_t:'Ausztria Radar',hu_d:'Ausztriai hírek és információk, elmagyarázva napi hírlevélben.',en_d:'Austria news and life in Hungarian — newsletter.'}
+  {url:'https://preview.mailerlite.io/forms/1227172/180756914698716491/share',img:'logo-ausztria-radar.png',hu_t:'Ausztria Radar',en_t:'Ausztria Radar',hu_d:'Ausztriai hírek és információk, magyarul elmagyarázva napi hírlevélben.',en_d:'Austria news and life in Hungarian — newsletter.'}
 ];
 var AFFILIATES=[
   {url:'https://kriptoteka.hu/',icon:'\u20bf',hu_t:'Kripto és gazdasági oktatóanyagok',en_t:'Kripto és gazdasági oktatóanyagok',hu_d:'20% kedvezmény a kovacstamas kuponkóddal.',en_d:'20% off with coupon code kovacstamas.'},
@@ -115,12 +119,12 @@ var AFFILIATES=[
   {url:'https://www.facebook.com/profile.php?id=100057158962315',icon:'\ud83c\uddfa\ud83c\uddf8',hu_t:'Tanulj Angolul!',en_t:'Tanulj Angolul!',hu_d:'Angol nyelvi oktatás.',en_d:'English language courses.'}
 ];
 var T={
-  hu:{lib_desc:'Projektek, napi összefoglalók és tartalmak \u2014 egy helyen.',lib_full:'Teljes oldal \u2192',aff_title:'Ajánlói linkek',co_label:'Kapcsolat',co_title:'Dolgozzunk együtt',co_sub:'Partnerség, szponzoráció, tartalmi együttműködés, tanácsadás.',f_n:'Név',f_t:'Téma',f_m:'Üzenet',f_s:'Küldés \u2192',o1:'Partnerség / Szponzoráció',o2:'Tartalmi együttműködés',o3:'Tanácsadás',o4:'Egyéb',fp_n:'A neved',fp_m:'Írd le az ötleted...',form_ok:'Köszönöm! Hamarosan válaszolok.',form_err:'Hiba történt. Próbáld újra.'},
-  en:{lib_desc:'Projects, daily briefings, and content \u2014 all in one place.',lib_full:'Full site \u2192',aff_title:'Affiliate links',co_label:'Contact',co_title:"Let's Work Together",co_sub:'Partnerships, sponsorships, content collaborations, consulting.',f_n:'Name',f_t:'Topic',f_m:'Message',f_s:'Send \u2192',o1:'Partnership / Sponsorship',o2:'Content Collaboration',o3:'Consulting',o4:'Other',fp_n:'Your name',fp_m:'Tell me your idea...',form_ok:"Thanks! I'll get back to you soon.",form_err:'Something went wrong. Please try again.'}
+  hu:{lib_desc:'Projektek, napi összefoglalók és tartalmak \u2014 egy helyen.',lib_full:'Teljes oldal \u2192',aff_title:'Ajánlói linkek',co_label:'Kapcsolat',co_title:'Dolgozzunk együtt',co_sub:'Partnerség, szponzoráció, tartalmi együttműködés, tanácsadás.',f_n:'Név',f_t:'Téma',f_m:'Üzenet',f_s:'Küldés \u2192',o1:'Partnerség / Szponzoráció',o2:'Tartalmi együttműködés',o3:'Tanácsadás',o4:'Egyéb',fp_n:'A neved',fp_m:'Írd le az ötleted...',f_priv:'Az itt megadott adatokat kizárólag a megkeresésed megválaszolására használom. Részletek az <a href="./privacy.html">Adatkezelési tájékoztatóban</a>.',form_ok:'Köszönöm! Hamarosan válaszolok.',form_err:'Hiba történt. Próbáld újra.'},
+  en:{lib_desc:'Projects, daily briefings, and content \u2014 all in one place.',lib_full:'Full site \u2192',aff_title:'Affiliate links',co_label:'Contact',co_title:"Let's Work Together",co_sub:'Partnerships, sponsorships, content collaborations, consulting.',f_n:'Name',f_t:'Topic',f_m:'Message',f_s:'Send \u2192',o1:'Partnership / Sponsorship',o2:'Content Collaboration',o3:'Consulting',o4:'Other',fp_n:'Your name',fp_m:'Tell me your idea...',f_priv:"I use the data you submit here only to reply to your message. Details in the <a href='./privacy.html'>Privacy Notice</a>.",form_ok:"Thanks! I'll get back to you soon.",form_err:'Something went wrong. Please try again.'}
 };
 var lang=localStorage.getItem('tk_lang')||'en';
 function renderList(items,cid){var c=document.getElementById(cid);c.innerHTML='';items.forEach(function(b){var a=document.createElement('a');a.href=b.url;a.target='_blank';a.rel='noopener';a.className='lib-btn';var iconHtml=b.img?'<div class="lib-icon lib-icon-img"><img src="'+b.img+'" alt=""></div>':'<div class="lib-icon">'+b.icon+'</div>';a.innerHTML=iconHtml+'<div class="lib-text"><div class="lib-title">'+b[lang+'_t']+'</div><div class="lib-subdesc">'+b[lang+'_d']+'</div></div><span class="lib-arrow">\u2192</span>';c.appendChild(a);});}
-function setLang(l){lang=l;localStorage.setItem('tk_lang',l);document.documentElement.lang=l;var t=T[l];document.querySelectorAll('[data-i18n]').forEach(function(el){var k=el.getAttribute('data-i18n');if(t[k]!=null)el.textContent=t[k];});document.querySelectorAll('[data-i18n-ph]').forEach(function(el){var k=el.getAttribute('data-i18n-ph');if(t[k]!=null)el.placeholder=t[k];});document.querySelectorAll('.lang-btn').forEach(function(b){var a=b.dataset.lang===l;b.classList.toggle('active',a);b.setAttribute('aria-pressed',a);});renderList(BUTTONS,'libLinks');renderList(AFFILIATES,'affLinks');}
+function setLang(l){lang=l;localStorage.setItem('tk_lang',l);document.documentElement.lang=l;var t=T[l];document.querySelectorAll('[data-i18n]').forEach(function(el){var k=el.getAttribute('data-i18n');if(t[k]!=null)el.textContent=t[k];});document.querySelectorAll('[data-i18n-html]').forEach(function(el){var k=el.getAttribute('data-i18n-html');if(t[k]!=null)el.innerHTML=t[k];});document.querySelectorAll('[data-i18n-ph]').forEach(function(el){var k=el.getAttribute('data-i18n-ph');if(t[k]!=null)el.placeholder=t[k];});document.querySelectorAll('.lang-btn').forEach(function(b){var a=b.dataset.lang===l;b.classList.toggle('active',a);b.setAttribute('aria-pressed',a);});renderList(BUTTONS,'libLinks');renderList(AFFILIATES,'affLinks');}
 document.querySelectorAll('.lang-btn').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.lang);});});
 setLang(lang);
 document.getElementById('contactForm').addEventListener('submit',function(e){e.preventDefault();var form=this;var msg=document.getElementById('formMsg');var data=new FormData(form);fetch(form.action,{method:'POST',body:data,headers:{'Accept':'application/json'}}).then(function(r){if(r.ok){msg.className='form-msg ok';msg.textContent=T[lang].form_ok;form.reset();}else{msg.className='form-msg err';msg.textContent=T[lang].form_err;}}).catch(function(){msg.className='form-msg err';msg.textContent=T[lang].form_err;});});
